@@ -1,7 +1,6 @@
 package com.application.task.service;
 
 import com.application.task.domain.Article;
-import com.application.task.exception.ArticleNotFoundException;
 import com.application.task.repository.ArtRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,5 @@ public class ArtService {
 
     public Article save(final Article article) {return artRepository.save(article);}
 
-    public void deleteArt(final Long artId) {
-        if (artRepository.existsById(artId)) artRepository.deleteById(artId);
-        else throw new ArticleNotFoundException();
-    }
+    public void deleteArt(final Long artId) {artRepository.deleteById(artId);}
 }
